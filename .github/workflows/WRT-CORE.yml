@@ -154,14 +154,12 @@ jobs:
         run: |
           cd ./wrt/
           
-          # 添加 qmodem feed（建议放最前面）
-          echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
-          
           # 更新全部 feed
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          ./scripts/feeds install -f -p qmodem
-
+          echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
+          ./scripts/feeds update qmodem
+          ./scripts/feeds install -a -f -p qmodem
       - name: Custom Packages
         run: |
           cd ./wrt/package/
