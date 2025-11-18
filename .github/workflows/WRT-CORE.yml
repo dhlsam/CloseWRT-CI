@@ -153,9 +153,12 @@ jobs:
       - name: Update Feeds
         run: |
           cd ./wrt/
-
+          
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
+          ./scripts/feeds update qmodem
+          ./scripts/feeds install -a -f -p qmodem
 
       - name: Custom Packages
         run: |
