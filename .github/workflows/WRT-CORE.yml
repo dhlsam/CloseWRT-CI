@@ -157,11 +157,10 @@ jobs:
           # 添加 qmodem feed（建议放最前面）
           echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
           
-          # 更新全部 feed（包含 qmodem）
+          # 更新全部 feed
           ./scripts/feeds update -a
-          
-          # 安装全部 feed（包含 qmodem）
-          ./scripts/feeds install -a -f -p qmodem
+          ./scripts/feeds install -a
+          ./scripts/feeds install -f -p qmodem
 
       - name: Custom Packages
         run: |
