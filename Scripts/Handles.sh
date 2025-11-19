@@ -2,6 +2,13 @@
 
 PKG_PATH="$GITHUB_WORKSPACE/wrt/package/"
 
+# 更新 Golang 为最新版
+cd "$pkgPath"
+rm -rf "$WRT_MainPath/feeds/packages/lang/golang"
+git clone https://github.com/sbwml/packages_lang_golang -b 25.x "$WRT_MainPath/feeds/packages/lang/golang"
+echo 'Updated: golang'
+echo ''
+
 #预置HomeProxy数据
 if [ -d *"homeproxy"* ]; then
 	echo " "
