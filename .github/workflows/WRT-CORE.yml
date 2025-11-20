@@ -155,9 +155,10 @@ jobs:
           cd ./wrt/
           
           # 更新全部 feed
-          echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
+          ./scripts/feeds update qmodem
           ./scripts/feeds install -a -f -p qmodem
           rm -rf feeds/packages/lang/golang
           git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
