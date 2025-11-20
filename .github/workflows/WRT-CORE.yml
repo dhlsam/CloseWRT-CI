@@ -155,10 +155,11 @@ jobs:
           cd ./wrt/
           
           # 更新全部 feed
+          echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           ./scripts/feeds install -a -f -p qmodem
-        
+          
       - name: Custom Packages
         run: |
           cd ./wrt/package/
