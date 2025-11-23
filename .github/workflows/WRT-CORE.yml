@@ -153,10 +153,10 @@ jobs:
       - name: Update Feeds
         run: |
           cd ./wrt/
-          #echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
+          echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          #./scripts/feeds install -a -f -p qmodem
+          ./scripts/feeds install -a -f -p qmodem
           rm -rf feeds/packages/lang/golang
           git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
